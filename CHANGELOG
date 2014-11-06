@@ -1,3 +1,8 @@
+v0.1.21:
+  date: 2014-11-06
+  changes:
+    - Fix images URL in readme.
+
 v0.1.2:
   date: 2014-11-06
   changes:

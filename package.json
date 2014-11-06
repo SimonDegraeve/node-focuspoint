@@ -1,7 +1,7 @@
 {
   "name": "node-focuspoint",
   "description": "Resize and crop images without cutting out the image's subject",
-  "version": "0.1.2",
+  "version": "0.1.21",
   "homepage": "https://github.com/SimonDegraeve/node-focuspoint",
   "author": {
     "name": "Simon Degraeve",
