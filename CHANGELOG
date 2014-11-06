@@ -1,7 +1,12 @@
+v0.1.24:
+  date: 2014-11-06
+  changes:
+    - Change directory alias
+
 v0.1.23:
   date: 2014-11-06
   changes:
-    - Fix options directory
+    - Fix option directory
 
 v0.1.22:
   date: 2014-11-06

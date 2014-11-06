@@ -31,7 +31,7 @@ var argv = require('yargs')
           describe: 'Set horizontal coordinate of focus point (percentage)',
           default: '50'
         },
-        o: {
+        d: {
           alias: 'directory',
           describe: 'Set the output directory, default use file directory',
         },
