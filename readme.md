@@ -61,6 +61,26 @@ focuspoint(imagePath, sizes, options, function(error) {
 });
 
 ```
+## Examples
+Using an [image](https://unsplash.com/photos/4mta-DkJUAg/) by Jonathan Velasquez from [Unsplash](https://unsplash.com/)
+
+`focuspoint -x 64.583 -y 46.296 -s 1024x256 -s 512x512  -s 256x512 test.jpg `
+
+Original
+
+![Original](https://github.com/SimonDegraeve/node-focuspoint/blob/master/examples/test.jpg 'Original')
+
+1024x256
+
+![1024x256](https://github.com/SimonDegraeve/node-focuspoint/blob/master/examples/test-1024x256-focused.jpg '1024x256')
+
+512x512
+
+![512x512](https://github.com/SimonDegraeve/node-focuspoint/blob/master/examples/test-512x512-focused.jpg '512x512')
+
+256x512
+
+![256x512](https://github.com/SimonDegraeve/node-focuspoint/blob/master/examples/test-256x512-focused.jpg '256x512')
 
 ## Support
 If you have any problem or suggestion please open an issue [here](https://github.com/SimonDegraeve/node-focuspoint/issues).
