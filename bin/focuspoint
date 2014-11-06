@@ -78,6 +78,6 @@ if (!(argv.size instanceof Array)) {
 
 focuspoint(argv._[0], argv.size, argv, function(error) {
   if (error) {
-    throw Error(error);
+    throw error;
   }
 });

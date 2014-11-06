@@ -2,45 +2,64 @@
 
 [![Build Status](https://travis-ci.org/SimonDegraeve/node-focuspoint.svg?branch=master)](https://travis-ci.org/SimonDegraeve/node-focuspoint) [![Coverage Status](https://img.shields.io/coveralls/SimonDegraeve/node-focuspoint.svg)](https://coveralls.io/r/SimonDegraeve/node-focuspoint) [![Dependencies Status](https://david-dm.org/SimonDegraeve/node-focuspoint.png)](https://david-dm.org/SimonDegraeve/node-focuspoint) [![npm version](https://badge.fury.io/js/node-focuspoint.svg)](http://badge.fury.io/js/node-focuspoint)
 
-> Compile [Loopback](https://github.com/strongloop/loopback) project with [Webpack](https://github.com/webpack/webpack). This is useful for [isomorphic](http://strongloop.com/strongblog/full-stack-javascript-isomorphic-loopback-browse/) application.
+> Resize and crop images without cutting out the image's subject.
 
-Since the Loopback application should be compiled with `browserify`, a lot of errors/warnings occured when you want to use `webpack` instead. This plugin fix this bugs. It works with or without [loopback-boot](https://github.com/strongloop/loopback-boot), the convention-based bootstrapper for LoopBack applications.
+This package is based on [`node-canvas`](https://github.com/Automattic/node-canvas) for drawing and [`pica`](https://github.com/nodeca/pica) for resizing. Unless previously installed you'll need [Cairo](http://cairographics.org/). For system-specific installation check the [node-canvas Wiki](https://github.com/LearnBoost/node-canvas/wiki/_pages).
 
 ## Usage
 Install the module with: `npm install node-focuspoint`
 
-```javascript
-// client.js
-// From the isomorphic example of Loopback.
-// https://github.com/strongloop/loopback-example-full-stack
+### Using CLI
+```sh
+Usage: focuspoint [options] [file]
 
-var loopback = require('loopback');
-var boot = require('loopback-boot');
+Examples:
+  focuspoint -x 90 -y 30 -s 1024x768 -s 512x512 image.jpg    Create two images (1024x768 and 512x512) with focus at 90%x30%
 
-var client = module.exports = loopback();
-boot(client);
+
+Options:
+  -s, --size           Set the output sizes, default use file size
+  -x, --focus-x        Set horizontal coordinate of focus point (percentage)    [default: "50"]
+  -y, --focus-y        Set vertical coordinate of focus point (percentage)  [default: "50"]
+  -o, --output-dir     Set the output directory, default use file directory
+  --prefix             Add prefix to output file name                         [default: ""]
+  --suffix             Add suffix to output file name                         [default: "-[size]-focused"]
+  -q, --quality        Set the quality [0..3]                                 [default: 3]
+  -a, --alpha          Use alpha channel                                      [default: false]
+  --unsharp-amount     Set the unsharp amount [0..500]                        [default: 0]
+  --unsharp-threshold  Set the unsharp threshold [0..100]                     [default: 0]
+  --quiet              Do not output to console                               [default: false]
+  --help               Show help
+  --version            Show version number
+
 ```
 
+### Using API
 ```javascript
-// webpack.config.js
-var LoopbackBootPlugin = require('node-focuspoint');
+var focuspoint = require('node-focuspoint');
 
-module.exports = {
-    entry: './client.js',
-    output: {
-        path: __dirname,
-        filename: 'bundle.js'
-    },
-    module: {
-        loaders: [
-            { test: /\.json$/, loader: 'json' } // Be careful, the JSON loader is required
-        ]
-    },
-    plugins: [
-      new LoopbackBootPlugin() // You can pass any loopback-boot options
-                               // Default: appRootDir is the directory of the last entry
-    ]
+var imagePath = '/path/to/image.jpg'; // File to process
+var sizes = ['1024x768', '512x512'];  // Set the output sizes, default use file size
+var options = {
+  directory: '/path/to/output',       // Set the output directory, default use file directory
+  prefix: '',                         // Add prefix to output file name
+  suffix: '-[size]-focused',          // Add suffix to output file name, [size] will be replaced by the output size (e.g. '1024x768' )
+  focusX: 50,                         // Set horizontal coordinate of focus point (percentage)
+  focusY: 50,                         // Set vertical coordinate of focus point (percentage)
+  quality: 3,                         // Set the quality [0..3]
+  alpha: false,                       // Use alpha channel
+  unsharpAmount: 0,                   // Set the unsharp amount [0..500]
+  unsharpThreshold: 0,                // Set the unsharp threshold [0..100]
+  quiet: false                        //  Do not output to console
 };
+
+focuspoint(imagePath, sizes, options, function(error) {
+  if (error) {
+    throw error;
+  }
+  console.log('Success!');
+});
+
 ```
 
 ## Support
