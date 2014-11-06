@@ -32,7 +32,7 @@ var argv = require('yargs')
           default: '50'
         },
         o: {
-          alias: 'output-dir',
+          alias: 'directory',
           describe: 'Set the output directory, default use file directory',
         },
         prefix: {

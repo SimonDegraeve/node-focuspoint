@@ -1,24 +1,29 @@
+v0.1.23:
+  date: 2014-11-06
+  changes:
+    - Fix options directory
+
 v0.1.22:
   date: 2014-11-06
   changes:
-    - Add keywords in package.json.
+    - Add keywords in package.json
 
 v0.1.21:
   date: 2014-11-06
   changes:
-    - Fix images URL in readme.
+    - Fix images URL in readme
 
 v0.1.2:
   date: 2014-11-06
   changes:
-    - Add examples.
+    - Add examples
 
 v0.1.1:
   date: 2014-11-06
   changes:
-    - Fix Travis-ci.
+    - Fix Travis-ci
 
 v0.1.0:
   date: 2014-10-02
   changes:
-    - Initial release.
+    - Initial release
