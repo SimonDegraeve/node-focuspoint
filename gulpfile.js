@@ -28,7 +28,7 @@ var exec = require('child_process').exec,
     };
 
 gulp.task('check-updates', function(done) {
-  exec('./node_modules/.bin/npm-check-updates', function(error, stdout, stderr) {
+  exec('./node_modules/npm-check-updates/bin/npm-check-updates', function(error, stdout, stderr) {
     if (stdout.indexOf('All dependencies match the latest package versions :)') === -1) {
       error = new Error('Dependencies can be updated.');
       console.log(stdout);
@@ -38,7 +38,7 @@ gulp.task('check-updates', function(done) {
 });
 
 gulp.task('apply-updates', function(done) {
-  exec('./node_modules/.bin/npm-check-updates -u', function(error, stdout, stderr) {
+  exec('./node_modules/npm-check-updates/bin/npm-check-updates -u', function(error, stdout, stderr) {
     if (stdout.indexOf('All dependencies match the latest package versions :)') !== -1) {
       return done(error);
     }

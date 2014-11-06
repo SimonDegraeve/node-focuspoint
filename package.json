@@ -1,6 +1,6 @@
 {
   "name": "node-focuspoint",
-  "description": "",
+  "description": "Resize and crop images without cutting out the image's subject",
   "version": "0.1.0",
   "homepage": "https://github.com/SimonDegraeve/node-focuspoint",
   "author": {
@@ -22,7 +22,7 @@
   ],
   "main": "index.js",
   "bin" : {
-    "focuspoint" : "./bin/focuspoint" 
+    "focuspoint" : "./bin/focuspoint"
   },
   "engines": {
     "node": ">= 0.10.x",
@@ -41,12 +41,12 @@
   "devDependencies": {
     "chai": "^1.9.2",
     "glob": "^4.0.6",
-    "gulp": "^3.8.9",
+    "gulp": "^3.8.10",
     "gulp-complexity": "^0.3.0",
     "gulp-coveralls": "^0.1.3",
     "gulp-istanbul": "^0.3.1",
     "gulp-jscs": "git://github.com/SimonDegraeve/gulp-jscs",
-    "gulp-jshint": "^1.8.6",
+    "gulp-jshint": "^1.9.0",
     "gulp-mocha": "^1.1.1",
     "gulp-plumber": "^0.6.6",
     "gulp-watch": "^1.1.0",
@@ -54,7 +54,7 @@
     "jshint-stylish": "^1.0.0",
     "json-loader": "^0.5.1",
     "npm-check-updates": "^1.2.0",
-    "rewire": "^2.1.2",
+    "rewire": "^2.1.3",
     "sinon": "^1.11.1",
     "sinon-chai": "^2.6.0"
   },
