@@ -20,7 +20,7 @@ Examples:
 Options:
   -s, --size           Set the output sizes, default use file size
   -x, --focus-x        Set horizontal coordinate of focus point (percentage)    [default: "50"]
-  -y, --focus-y        Set vertical coordinate of focus point (percentage)  [default: "50"]
+  -y, --focus-y        Set vertical coordinate of focus point (percentage)    [default: "50"]
   -o, --output-dir     Set the output directory, default use file directory
   --prefix             Add prefix to output file name                         [default: ""]
   --suffix             Add suffix to output file name                         [default: "-[size]-focused"]
