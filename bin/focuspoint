@@ -1,0 +1,83 @@
+#!/usr/bin/env node
+
+/*
+ * node-focuspoint
+ * https://github.com/SimonDegraeve/node-focuspoint
+ *
+ * Copyright 2014, Simon Degraeve
+ * Licensed under the MIT license.
+ */
+
+'use strict';
+
+var pkg = require('../package.json');
+var focuspoint = require('../');
+var argv = require('yargs')
+      .usage('Resize and crop images without cutting out the image\'s subject \nUsage: focuspoint [options] [file]')
+      .example('focuspoint -x 90 -y 30 -s 1024x768 -s 512x512 image.jpg', 'Create two images (1024x768 and 512x512) with focus at 90%x30%')
+      .require(1, 'Missing required file')
+      .options({
+        s: {
+          alias: 'size',
+          describe: 'Set the output sizes, default use file size'
+        },
+        x: {
+          alias: 'focus-x',
+          describe: 'Set vertical coordinate of focus point (percentage)',
+          default: '50'
+        },
+        y: {
+          alias: 'focus-y',
+          describe: 'Set horizontal coordinate of focus point (percentage)',
+          default: '50'
+        },
+        o: {
+          alias: 'output-dir',
+          describe: 'Set the output directory, default use file directory',
+        },
+        prefix: {
+          describe: 'Add prefix to output file name',
+          default: ''
+        },
+        suffix: {
+          describe: 'Add suffix to output file name',
+          default: '-[size]-focused'
+        },
+        q: {
+          alias: 'quality',
+          describe: 'Set the quality [0..3]',
+          default: 3
+        },
+        a: {
+          alias: 'alpha',
+          describe: 'Use alpha channel',
+          default: false
+        },
+        'unsharp-amount': {
+          describe: 'Set the unsharp amount [0..500]',
+          default: 0
+        },
+        'unsharp-threshold': {
+          describe: 'Set the unsharp threshold [0..100]',
+          default: 0
+        },
+        quiet: {
+          describe: 'Do not output to console',
+          default: false
+        }
+      })
+      .boolean('a')
+      .boolean('v')
+      .help('help')
+      .version(pkg.version + '\n', 'version')
+      .argv;
+
+if (!(argv.size instanceof Array)) {
+  argv.size = [argv.size];
+}
+
+focuspoint(argv._[0], argv.size, argv, function(error) {
+  if (error) {
+    throw Error(error);
+  }
+});

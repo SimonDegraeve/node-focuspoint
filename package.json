@@ -1,0 +1,62 @@
+{
+  "name": "node-focuspoint",
+  "description": "",
+  "version": "0.1.0",
+  "homepage": "https://github.com/SimonDegraeve/node-focuspoint",
+  "author": {
+    "name": "Simon Degraeve",
+    "email": "simon.degraeve@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SimonDegraeve/node-focuspoint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SimonDegraeve/node-focuspoint/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/SimonDegraeve/node-focuspoint/blob/master/LICENSE"
+    }
+  ],
+  "main": "index.js",
+  "bin" : {
+    "focuspoint" : "./bin/focuspoint" 
+  },
+  "engines": {
+    "node": ">= 0.10.x",
+    "npm": ">=1.4.x"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "canvas": "^1.1.6",
+    "chalk": "^0.5.1",
+    "mime": "^1.2.11",
+    "pica": "^1.0.5"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "glob": "^4.0.6",
+    "gulp": "^3.8.9",
+    "gulp-complexity": "^0.3.0",
+    "gulp-coveralls": "^0.1.3",
+    "gulp-istanbul": "^0.3.1",
+    "gulp-jscs": "git://github.com/SimonDegraeve/gulp-jscs",
+    "gulp-jshint": "^1.8.6",
+    "gulp-mocha": "^1.1.1",
+    "gulp-plumber": "^0.6.6",
+    "gulp-watch": "^1.1.0",
+    "jscs-stylish": "git://github.com/SimonDegraeve/jscs-stylish",
+    "jshint-stylish": "^1.0.0",
+    "json-loader": "^0.5.1",
+    "npm-check-updates": "^1.2.0",
+    "rewire": "^2.1.2",
+    "sinon": "^1.11.1",
+    "sinon-chai": "^2.6.0"
+  },
+  "keywords": []
+}
