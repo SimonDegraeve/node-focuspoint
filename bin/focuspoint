@@ -73,7 +73,7 @@ var argv = require('yargs')
       .argv;
 
 if (!(argv.size instanceof Array)) {
-  argv.size = [argv.size];
+  argv.size = argv.size ? [argv.size] : undefined;
 }
 
 focuspoint(argv._[0], argv.size, argv, function(error) {
